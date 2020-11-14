@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "elainabroom",
+  "version": "${version}",
+  "name": "Elainabroom",
+  "description": "Elaina's Broom",
+  "authors": [
+    "YueSha"
+  ],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/elainabroom/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.teammoeg.elainabroom.client.ElainabroomClient"
+    ],
+    "main": [
+      "com.teammoeg.elainabroom.Elainabroom"
+    ]
+  },
+  "mixins": [
+    "elainabroom.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.10.6+build.214",
+    "fabric": "*",
+    "minecraft": "1.16.4"
+  }
+}
