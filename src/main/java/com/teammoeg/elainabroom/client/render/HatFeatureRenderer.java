@@ -15,6 +15,8 @@ import net.minecraft.util.Identifier;
 
 public class HatFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> {
 
+    private static final Identifier TEXTURE = new Identifier("minecraft", "textures/block/oak_log.png");
+
     public HatFeatureRenderer(FeatureRendererContext<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> context)
     {
         super(context);
@@ -22,7 +24,7 @@ public class HatFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEnti
 
     @Override
     protected Identifier getTexture(AbstractClientPlayerEntity entity) {
-        return new Identifier("elainabroom", "textures/hat.png");
+        return TEXTURE;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class HatFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEnti
 //
 //        matrices.pop();
 
-        if(!entity.getEquippedStack(EquipmentSlot.HEAD).isEmpty()) //todo: add a hat for el
+        if(entity.getEquippedStack(EquipmentSlot.HEAD).isEmpty()) //todo: add a hat for el
         {
 
             matrices.push();
