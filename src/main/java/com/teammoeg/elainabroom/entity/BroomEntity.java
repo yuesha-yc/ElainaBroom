@@ -4,6 +4,7 @@ import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +16,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -35,10 +37,47 @@ public class BroomEntity extends PigEntity {
         return false;
     }
 
+    @Override
+    public void travel(Vec3d movementInput) {
+        // PigEntity control
+        super.travel(movementInput);
+    }
+
+    @Override
+    public void setMovementInput(Vec3d movementInput) {
+        // FlyingEntity travel
+        if (this.isTouchingWater()) {
+            this.updateVelocity(0.02F, movementInput);
+            this.move(MovementType.SELF, this.getVelocity());
+            this.setVelocity(this.getVelocity().multiply(0.800000011920929D));
+        } else if (this.isInLava()) {
+            this.updateVelocity(0.02F, movementInput);
+            this.move(MovementType.SELF, this.getVelocity());
+            this.setVelocity(this.getVelocity().multiply(0.5D));
+        } else {
+            float f = 0.91F;
+            if (this.onGround) {
+                f = this.world.getBlockState(new BlockPos(this.getX(), this.getY() - 1.0D, this.getZ())).getBlock().getSlipperiness() * 0.91F;
+            }
+
+            float g = 0.16277137F / (f * f * f);
+            f = 0.91F;
+            if (this.onGround) {
+                f = this.world.getBlockState(new BlockPos(this.getX(), this.getY() - 1.0D, this.getZ())).getBlock().getSlipperiness() * 0.91F;
+            }
+
+            this.updateVelocity(this.onGround ? 0.1F * g : 0.02F, movementInput);
+            this.move(MovementType.SELF, this.getVelocity());
+            this.setVelocity(this.getVelocity().multiply((double)f));
+        }
+
+        this.method_29242(this, false);
+    }
+
     // Pig speed
     @Override
     public float getSaddledSpeed() {
-        return 0.3f;
+        return 0.1f;
     }
 
     @Override
