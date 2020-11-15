@@ -30,7 +30,7 @@ public class Elainabroom implements ModInitializer {
     // Broom entity
     public static final EntityType<BroomEntity> BROOM_ENTITY_TYPE =
             Registry.register(Registry.ENTITY_TYPE, new Identifier("elainabroom","broom")
-                    , FabricEntityTypeBuilder.create(SpawnGroup.MISC, BroomEntity::new).dimensions(EntityDimensions.fixed(1.0f,0.1f)).forceTrackedVelocityUpdates(true).trackRangeBlocks(160).trackedUpdateRate(2).build());
+                    , FabricEntityTypeBuilder.create(SpawnGroup.MISC, BroomEntity::new).dimensions(EntityDimensions.fixed(1.0f,0.5f)).forceTrackedVelocityUpdates(true).trackRangeBlocks(160).trackedUpdateRate(2).build());
 
     // Broom spawner item
     public static final Item BROOM = new BroomItem(new Item.Settings().group(TAB));
