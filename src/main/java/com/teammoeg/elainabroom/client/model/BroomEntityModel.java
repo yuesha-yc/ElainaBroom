@@ -1,5 +1,6 @@
-package com.teammoeg.elainabroom.entity;
+package com.teammoeg.elainabroom.client.model;
 
+import com.teammoeg.elainabroom.entity.BroomEntity;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;

@@ -1,5 +1,7 @@
-package com.teammoeg.elainabroom.entity;
+package com.teammoeg.elainabroom.client.render;
 
+import com.teammoeg.elainabroom.client.model.BroomEntityModel;
+import com.teammoeg.elainabroom.entity.BroomEntity;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;

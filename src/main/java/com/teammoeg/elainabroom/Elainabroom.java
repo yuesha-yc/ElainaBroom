@@ -39,6 +39,5 @@ public class Elainabroom implements ModInitializer {
     public void onInitialize() {
         FabricDefaultAttributeRegistry.register(BROOM_ENTITY_TYPE, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D));
         Registry.register(Registry.ITEM, new Identifier("elainabroom","broom"), BROOM);
-
     }
 }
