@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class HatFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> {
 
-    private static final Identifier TEXTURE = new Identifier("minecraft", "textures/block/oak_log.png");
+    private static final Identifier TEXTURE = new Identifier("elainabroom", "textures/hat.png");
 
     public HatFeatureRenderer(FeatureRendererContext<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> context)
     {
