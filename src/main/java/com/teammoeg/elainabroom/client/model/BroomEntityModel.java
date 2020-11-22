@@ -7,72 +7,38 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class BroomEntityModel extends EntityModel<BroomEntity> {
-    
-    private final ModelPart bb_main;
-    private final ModelPart straw6_r1;
-    private final ModelPart straw5_r1;
-    private final ModelPart straw5_r2;
-    private final ModelPart straw4_r1;
-    private final ModelPart straw4_r2;
-    private final ModelPart straw3_r1;
-    private final ModelPart straw2_r1;
-    private final ModelPart straw1_r1;
+
+    private final ModelPart rod;
+    private final ModelPart head;
 
 	public BroomEntityModel() {
-            textureWidth = 16;
-            textureHeight = 16;
+        textureWidth = 128;
+        textureHeight = 128;
 
-            bb_main = new ModelPart(this);
-            bb_main.setPivot(0.0F, 24.0F, 0.0F);
-            bb_main.setTextureOffset(0, 0).addCuboid(-1.0F, -1.0F, -8.0F, 2.0F, 2.0F, 32.0F, 0.0F, false);
+        rod = new ModelPart(this);
+        rod.setPivot(0.0F, 24.0F, 0.0F);
+//        setRotationAngle(rod, 0.0F, 0.0F, 3.1416F);
 
-            straw6_r1 = new ModelPart(this);
-            straw6_r1.setPivot(-1.0F, 0.0F, 24.0F);
-            bb_main.addChild(straw6_r1);
-            setAngles(straw6_r1, 0.0F, 0.7854F, -0.7854F);
-            straw6_r1.setTextureOffset(0, 0).addCuboid(-11.0F, 0.0F, 0.0F, 12.0F, 1.0F, 1.0F, 0.0F, true);
+        rod.setTextureOffset(0, 28).addCuboid(-3.0F, -2.0F, -10.0F, 3.0F, 3.0F, 25.0F, 0.0F, false);
+        rod.setTextureOffset(0, 0).addCuboid(-2.0F, -3.0F, -33.0F, 3.0F, 3.0F, 25.0F, 0.0F, false);
+        rod.setTextureOffset(0, 56).addCuboid(-2.0F, -4.0F, 11.0F, 3.0F, 3.0F, 23.0F, 0.0F, false);
 
-            straw5_r1 = new ModelPart(this);
-            straw5_r1.setPivot(-1.0F, 0.0F, 24.0F);
-            bb_main.addChild(straw5_r1);
-            setAngles(straw5_r1, 0.0F, 0.7854F, 0.7854F);
-            straw5_r1.setTextureOffset(0, 0).addCuboid(-11.0F, -1.0F, 0.0F, 12.0F, 1.0F, 1.0F, 0.0F, true);
+        head = new ModelPart(this);
+        head.setPivot(0.0F, 24.0F, 0.0F);
+//        setRotationAngle(head, 0.0F, 0.0F, 3.1416F);
 
-            straw5_r2 = new ModelPart(this);
-            straw5_r2.setPivot(1.0F, 0.0F, 24.0F);
-            bb_main.addChild(straw5_r2);
-            setAngles(straw5_r2, 0.0F, -0.7854F, 0.7854F);
-            straw5_r2.setTextureOffset(0, 0).addCuboid(-1.0F, 0.0F, 0.0F, 12.0F, 1.0F, 1.0F, 0.0F, false);
-
-            straw4_r1 = new ModelPart(this);
-            straw4_r1.setPivot(1.0F, 0.0F, 24.0F);
-            bb_main.addChild(straw4_r1);
-            setAngles(straw4_r1, 0.0F, -0.7854F, -0.7854F);
-            straw4_r1.setTextureOffset(0, 0).addCuboid(-1.0F, -1.0F, 0.0F, 12.0F, 1.0F, 1.0F, 0.0F, false);
-
-            straw4_r2 = new ModelPart(this);
-            straw4_r2.setPivot(0.0F, 1.0F, 24.0F);
-            bb_main.addChild(straw4_r2);
-            setAngles(straw4_r2, 0.7854F, 0.0F, 0.0F);
-            straw4_r2.setTextureOffset(0, 0).addCuboid(-1.0F, 0.0F, 0.0F, 2.0F, 11.0F, 1.0F, 0.0F, false);
-
-            straw3_r1 = new ModelPart(this);
-            straw3_r1.setPivot(0.0F, -1.0F, 24.0F);
-            bb_main.addChild(straw3_r1);
-            setAngles(straw3_r1, -0.7854F, 0.0F, 0.0F);
-            straw3_r1.setTextureOffset(0, 0).addCuboid(-1.0F, -11.0F, 0.0F, 2.0F, 12.0F, 1.0F, 0.0F, false);
-
-            straw2_r1 = new ModelPart(this);
-            straw2_r1.setPivot(0.0F, 0.0F, 24.0F);
-            bb_main.addChild(straw2_r1);
-            setAngles(straw2_r1, 0.0F, 0.7854F, 0.0F);
-            straw2_r1.setTextureOffset(0, 0).addCuboid(0.0F, -1.0F, 0.0F, 1.0F, 2.0F, 12.0F, 0.0F, true);
-
-            straw1_r1 = new ModelPart(this);
-            straw1_r1.setPivot(0.0F, 0.0F, 24.0F);
-            bb_main.addChild(straw1_r1);
-            setAngles(straw1_r1, 0.0F, -0.7854F, 0.0F);
-            straw1_r1.setTextureOffset(0, 0).addCuboid(-1.0F, -1.0F, 0.0F, 1.0F, 2.0F, 12.0F, 0.0F, false);
+        head.setTextureOffset(31, 12).addCuboid(-3.0F, -4.0F, -36.0F, 5.0F, 5.0F, 5.0F, 0.0F, false);
+        head.setTextureOffset(76, 39).addCuboid(-5.0F, -6.0F, -41.0F, 9.0F, 9.0F, 5.0F, 0.0F, false);
+        head.setTextureOffset(0, 28).addCuboid(-5.0F, -6.0F, -58.0F, 9.0F, 9.0F, 2.0F, 0.0F, false);
+        head.setTextureOffset(0, 15).addCuboid(-5.0F, -5.0F, -60.0F, 9.0F, 7.0F, 2.0F, 0.0F, false);
+        head.setTextureOffset(41, 13).addCuboid(-6.0F, -7.0F, -56.0F, 11.0F, 11.0F, 15.0F, 0.0F, false);
+        head.setTextureOffset(39, 69).addCuboid(-7.0F, -6.0F, -55.0F, 13.0F, 9.0F, 13.0F, 0.0F, false);
+        head.setTextureOffset(41, 41).addCuboid(-3.0F, -8.0F, -54.0F, 10.0F, 13.0F, 15.0F, 0.0F, false);
+        head.setTextureOffset(0, 0).addCuboid(0.0F, -7.0F, -39.0F, 5.0F, 11.0F, 4.0F, 0.0F, false);
+        head.setTextureOffset(31, 0).addCuboid(-2.0F, -5.0F, -35.0F, 5.0F, 7.0F, 5.0F, 0.0F, false);
+        head.setTextureOffset(51, 0).addCuboid(-4.0F, -6.0F, -34.0F, 8.0F, 9.0F, 1.0F, 0.0F, false);
+        head.setTextureOffset(31, 39).addCuboid(-4.0F, -7.0F, -41.0F, 4.0F, 3.0F, 6.0F, 0.0F, false);
+        head.setTextureOffset(0, 39).addCuboid(-4.0F, 1.0F, -41.0F, 4.0F, 3.0F, 6.0F, 0.0F, false);
     }
 
     @Override
@@ -82,10 +48,11 @@ public class BroomEntityModel extends EntityModel<BroomEntity> {
 
     @Override
     public void render(MatrixStack matrixStack, VertexConsumer vertices, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-        bb_main.render(matrixStack, vertices, packedLight, packedOverlay);
+        head.render(matrixStack, vertices, packedLight, packedOverlay);
+        rod.render(matrixStack, vertices, packedLight, packedOverlay);
     }
 
-    public void setAngles(ModelPart ModelPart, float x, float y, float z) {
+    public void setRotationAngle(ModelPart ModelPart, float x, float y, float z) {
         ModelPart.pivotX = x;
         ModelPart.pivotY = y;
         ModelPart.pivotZ = z;
