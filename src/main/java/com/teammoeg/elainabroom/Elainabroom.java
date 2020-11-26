@@ -1,6 +1,7 @@
 package com.teammoeg.elainabroom;
 
 import com.teammoeg.elainabroom.entity.BroomEntity;
+import com.teammoeg.elainabroom.entity.MarisaBroomEntity;
 import com.teammoeg.elainabroom.item.BroomItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -32,12 +33,18 @@ public class Elainabroom implements ModInitializer {
             Registry.register(Registry.ENTITY_TYPE, new Identifier("elainabroom","broom")
                     , FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BroomEntity::new).dimensions(EntityDimensions.fixed(4.0F,1.1F)).trackable(100,4).build());
 
+    // Marisa Broom Entity
+    public static final EntityType<MarisaBroomEntity> MARISA_BROOM_ENTITY_TYPE =
+            Registry.register(Registry.ENTITY_TYPE, new Identifier("elainabroom","marisa_broom")
+                    , FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MarisaBroomEntity::new).dimensions(EntityDimensions.fixed(1.0f,1.0f)).trackable(100,4).build());
+
     // Broom spawner item
     public static final Item BROOM = new BroomItem(new Item.Settings().group(TAB));
 
     @Override
     public void onInitialize() {
         FabricDefaultAttributeRegistry.register(BROOM_ENTITY_TYPE, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D));
+        FabricDefaultAttributeRegistry.register(MARISA_BROOM_ENTITY_TYPE, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D));
         Registry.register(Registry.ITEM, new Identifier("elainabroom","broom"), BROOM);
     }
 }

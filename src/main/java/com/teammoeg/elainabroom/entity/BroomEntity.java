@@ -71,7 +71,7 @@ public class BroomEntity extends PigEntity {
                 }
 
                 // Update the vel, but not y! (Pitch)
-                float accair = 0.1F;
+                float accair = 0.02F;
                 this.updateVelocity(this.onGround ? 0.1F * g : accair, movementInput);
                 // Move the entity
                 this.move(MovementType.SELF, this.getVelocity());
@@ -100,16 +100,16 @@ public class BroomEntity extends PigEntity {
             return Vec3d.ZERO;
         } else {
             Vec3d mvinput_vec = movementInput.multiply((double)speed);
-            System.out.println("MULTIPLIED MVINPUT: " + movementInput);
+//            System.out.println("MULTIPLIED MVINPUT: " + movementInput);
             // Small diff on three dir
             // PI/180 = 0.017453292F
             float f = MathHelper.sin(yaw * 0.017453292F);
             float g = MathHelper.cos(yaw * 0.017453292F);
             float h = MathHelper.sin(pitch * 0.017453292F);
-            System.out.println("PITCH ANGLE: " + h);
+//            System.out.println("PITCH ANGLE: " + h);
             // Calculating a small diff
             Vec3d result_vec3d = new Vec3d(mvinput_vec.x * (double)g - mvinput_vec.z * (double)f, playerVec.y * h, mvinput_vec.z * (double)g + mvinput_vec.x * (double)f);
-            System.out.println("ENTITY VEC DIFF: " + result_vec3d);
+//            System.out.println("ENTITY VEC DIFF: " + result_vec3d);
             return result_vec3d;
         }
 

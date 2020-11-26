@@ -1,17 +1,17 @@
 package com.teammoeg.elainabroom.client.model;
 
-import com.teammoeg.elainabroom.entity.BroomEntity;
+import com.teammoeg.elainabroom.entity.MarisaBroomEntity;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class BroomEntityModel extends EntityModel<BroomEntity> {
+public class MarisaBroomEntityModel extends EntityModel<MarisaBroomEntity> {
 
     private final ModelPart rod;
     private final ModelPart head;
 
-	public BroomEntityModel() {
+    public MarisaBroomEntityModel() {
         textureWidth = 128;
         textureHeight = 128;
 
@@ -35,10 +35,10 @@ public class BroomEntityModel extends EntityModel<BroomEntity> {
         head.setTextureOffset(51, 0).addCuboid(-4.0F, -6.0F, -34.0F, 8.0F, 9.0F, 1.0F, 0.0F, false);
         head.setTextureOffset(31, 39).addCuboid(-4.0F, -7.0F, -41.0F, 4.0F, 3.0F, 6.0F, 0.0F, false);
         head.setTextureOffset(0, 39).addCuboid(-4.0F, 1.0F, -41.0F, 4.0F, 3.0F, 6.0F, 0.0F, false);
-	}
+    }
 
     @Override
-    public void setAngles(BroomEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setAngles(MarisaBroomEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 
     }
 
